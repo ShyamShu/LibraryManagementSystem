@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Student Login - Library Management System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+            color: #333;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="password"] {
+            font-size: 18px;
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            width: 100%;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .footer {
+            font-size: 14px;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Student Login - Library Management System</h2>
+
+        <!-- Login Form -->
+        <form data-th-action="@{'do-student'}" method="POST">
+            <!-- Username Field -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" required placeholder="Enter your username">
+            </div>
+
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="Enter your password">
+            </div>
+
+            <!-- Login Button -->
+            <div class="form-group">
+                <button type="submit">Login</button>
+            </div>
+
+            <!-- Error Message (Example) -->
+            <div class="error-message">
+                <!-- Error message will appear here if any -->
+                <!-- Example: <p>Invalid username or password.</p> -->
+            </div>
+        </form>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024 Library Management System</p>
+        </div>
+    </div>
+
+</body>
+</html>

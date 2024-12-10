@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .home-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            margin: 10px 0;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .btn-logout {
+            background-color: #f44336;
+        }
+        .btn-logout:hover {
+            background-color: #e53935;
+        }
+        .role-selection {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="home-container">
+        <h2>Welcome to Library Management System</h2>
+
+        <div class="role-selection">
+            <h3>Select Role to Login</h3>
+            <a href="/login/admin" class="btn">Login as Admin</a>
+            <a href="/login/student" class="btn">Login as Student</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
