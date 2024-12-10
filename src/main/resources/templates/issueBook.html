@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue a Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        .form-group input[type="date"] {
+            width: auto;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="form-container">
+        <h2>Issue a Book</h2>
+
+        <form th:action="@{'issueBook'}" method="POST" th:object="${transactionForm}">
+            <div th:if="${#fields.hasErrors()}">
+                <div class="error">
+                    <p>Please fill in the required fields correctly.</p>
+                </div>
+            </div>
+
+            <!-- Book Name -->
+            <div class="form-group">
+                <label for="bookName">Book Name:</label>
+                <select id="bookName" name="bookName" th:field="*{book.bookId}" required>
+                    <option value="">Select a Book</option>
+                    <option th:each="book : ${books}" th:value="${book.bookId}" th:text="${book.title}"></option>
+                </select>
+            </div>
+
+            <!-- Author Name (Non-editable) -->
+            <div class="form-group">
+                <label for="authorName">Author Name:</label>
+                <input type="text" id="authorName" name="authorName" value="Shyam Shukla" readonly />
+            </div>
+
+            <!-- Issue Date (Cannot be less than today) -->
+            <div class="form-group">
+                <label for="issueDate">Issue Date:</label>
+                <input type="date" id="issueDate" name="issueDate" th:field="*{borrowDate}"
+                    min="[[${#dates.format(#dates.create('yyyy-MM-dd'), 'yyyy-MM-dd')()}]]" required />
+            </div>
+
+            <!-- Return Date (Automatically populated to 15 days later, but editable) -->
+            <div class="form-group">
+                <label for="returnDate">Return Date:</label>
+                <input type="date" id="returnDate" name="returnDate" th:field="*{returnDate}" th:value="${returnDate}"
+                    min="[[${#dates.format(#dates.create('yyyy-MM-dd').plusDays(1), 'yyyy-MM-dd')()}]]"
+                    max="[[${#dates.format(#dates.create('yyyy-MM-dd').plusDays(15), 'yyyy-MM-dd')()}]]" required />
+            </div>
+
+            
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit">Issue Book</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>

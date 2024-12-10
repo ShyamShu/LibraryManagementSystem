@@ -4,6 +4,8 @@ import java.time.LocalDate;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,13 +27,13 @@ public class Transaction {
     
     private String transactionId;
 
-    // @ManyToOne
-    // @JoinColumn(name = "book_id", nullable = false)
-    // private Book book;  // Referencing the Book entity
+    @ManyToOne
+    @JoinColumn(name = "book_id", nullable = false)
+    private Book book;  // Referencing the Book entity
 
-    // @ManyToOne
-    // @JoinColumn(name = "member_id", nullable = false)
-    // private Student student;  // Referencing the Member entity
+    @ManyToOne
+    @JoinColumn(name = "member_id", nullable = false)
+    private Student student;  // Referencing the Member entity
 
     private LocalDate borrowDate;
     private LocalDate returnDate;

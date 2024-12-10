@@ -8,4 +8,6 @@ import com.example.libraryManagementSystem.LibraryManagementSystem.Entity.Book;
 @Repository
 public interface BookRepo extends JpaRepository<Book , String> {
 
+    Book findBytittle(String tittle);
+
 }

@@ -8,4 +8,8 @@ import com.example.libraryManagementSystem.LibraryManagementSystem.Entity.Author
 @Repository
 public interface AuthorRepo extends JpaRepository<Author , String> {
 
+    Author findByname(String name);
+
+
+
 }

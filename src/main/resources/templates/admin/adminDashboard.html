@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -106,9 +108,9 @@
                             <a class="btn btn-primary" th:href="@{/admin/addBook}">Add Book</a>
                             <a class="btn btn-primary" th:href="@{/add-membership}">Add Membership</a>
                             <a class="btn btn-primary" th:href="@{/update-membership}">Update Membership</a>
-                            <a class="btn btn-primary" th:href="@{/add-user}">Add User</a>
+                            <a class="btn btn-primary" th:href="@{/admin/addStudent}">Add Student</a>
                             <a class="btn btn-primary" th:href="@{/update-user}">Update User</a>
-                            <a class="btn btn-primary" th:href="@{/update-book-details}">Update Book Details</a>
+                            <a class="btn btn-primary" th:href="@{/admin/updatebook}">Update Book Details</a>
                         </div>
                         
                 </div>
@@ -133,7 +135,7 @@
                     <div class="card-header">Transactions</div>
                     <div class="card-body">
                         <h5>Manage Transactions</h5>
-                        <button class="btn btn-success" onclick="location.href='/borrow-book'">Borrow Book</button>
+                        <button class="btn btn-success" th:href="@{/issueBook}">Borrow Book</button>
                         <button class="btn btn-success" onclick="location.href='/return-book'">Return Book</button>
                         <button class="btn btn-success" onclick="location.href='/transaction-history'">Transaction History</button>
                     </div>

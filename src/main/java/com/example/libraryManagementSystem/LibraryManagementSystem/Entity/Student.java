@@ -30,6 +30,6 @@ public class Student {
 
     private String name;
 
-    private String role = "ROLE_USER";
+    
 
 }
