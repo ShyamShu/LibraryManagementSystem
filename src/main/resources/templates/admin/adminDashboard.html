@@ -106,10 +106,10 @@
                         <h5>Manage Library and Users</h5>
                         <div>
                             <a class="btn btn-primary" th:href="@{/admin/addBook}">Add Book</a>
-                            <a class="btn btn-primary" th:href="@{/add-membership}">Add Membership</a>
-                            <a class="btn btn-primary" th:href="@{/update-membership}">Update Membership</a>
+                            <a class="btn btn-primary" th:href="@{/admin/addAuthor}">Add Author</a>
+                            <a class="btn btn-primary" th:href="@{/admin/futureProcess}">Update Membership</a>
                             <a class="btn btn-primary" th:href="@{/admin/addStudent}">Add Student</a>
-                            <a class="btn btn-primary" th:href="@{/update-user}">Update User</a>
+                            <a class="btn btn-primary" th:href="@{/admin/futureProcess}">Update User</a>
                             <a class="btn btn-primary" th:href="@{/admin/updatebook}">Update Book Details</a>
                         </div>
                         
@@ -122,9 +122,9 @@
                     <div class="card-header">Reports</div>
                     <div class="card-body">
                         <h5>View Library Reports</h5>
-                        <button class="btn btn-info" onclick="location.href='/books-borrowed'">Books Borrowed</button>
-                        <button class="btn btn-info" onclick="location.href='/overdue-books'">Overdue Books</button>
-                        <button class="btn btn-info" onclick="location.href='/daily-transactions'">Daily Transactions</button>
+                        <button class="btn btn-info" onclick="location.href='/admin/futureProcess'">Books Borrowed</button>
+                        <button class="btn btn-info" onclick="location.href='/admin/futureProcess'">Overdue Books</button>
+                        <button class="btn btn-info" onclick="location.href='/admin/futureProcess'">Daily Transactions</button>
                     </div>
                 </div>
             </div>
@@ -138,7 +138,7 @@
                         <!-- Borrow Book Button using Thymeleaf -->
                         <a th:href="@{/admin/issueBook}" class="btn btn-success">Borrow Book</a>
                         <!-- Return Book Button using Thymeleaf -->
-                        <a th:href="@{/return-book}" class="btn btn-success">Return Book</a>
+                        <a th:href="@{/admin/futureProcess}" class="btn btn-success">Return Book</a>
                         <!-- Transaction History Button using Thymeleaf -->
                         <a th:href="@{/admin/transactionHistory}" class="btn btn-success">Transaction History</a>
                     </div>

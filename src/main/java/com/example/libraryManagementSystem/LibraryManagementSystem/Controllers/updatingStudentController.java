@@ -49,6 +49,13 @@ public class updatingStudentController {
     public String updateStudent() {
         return "admin/updateStudent";
     }
+
+    @GetMapping("/futureProcess")
+    public String getMethodName() {
+
+        return "admin/futurepage";
+    }
+    
     
     
 }

@@ -1,5 +1,7 @@
 package com.example.libraryManagementSystem.LibraryManagementSystem.Services;
 
+import java.util.UUID;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,8 @@ public class StudentService {
 
     public Student saveStudent(Student student) throws Exception
     {
+        String uuid = UUID.randomUUID().toString();
+        student.setStudentId(uuid);
         try{
         return studentRepo.save(student);
         }

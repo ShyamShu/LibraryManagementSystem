@@ -2,6 +2,8 @@ package com.example.libraryManagementSystem.LibraryManagementSystem.Entity;
 
 
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -24,6 +26,7 @@ public class Student {
     @Id
     private String studentId;
 
+    @UniqueElements
     private String email;
 
     private String password;

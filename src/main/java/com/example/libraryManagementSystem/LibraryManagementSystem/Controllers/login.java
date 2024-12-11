@@ -50,7 +50,7 @@ public class login {
         
         Admin admindup = adminServices.findbyemail(email);
 
-        if(admindup == null || admindup.getPassword() !=  password)
+        if(admindup == null || !admindup.getPassword().equals(password))
         {
              return "redirect:/login/admin";
         }
@@ -67,9 +67,11 @@ public class login {
        logger.info(password);
 
        Student temp = studentService.findbyemail(email);
+       logger.info("studnet credential form db :{}" , temp.toString());
 
-       if(temp == null || temp.getPassword() != password)
+       if(temp == null || !temp.getPassword().equals(password) )
        {
+        logger.info("problem is occured during login as student " );
         return  "redirect:/login/student";
        }
         
