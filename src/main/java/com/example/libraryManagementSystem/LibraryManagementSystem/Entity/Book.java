@@ -1,5 +1,7 @@
 package com.example.libraryManagementSystem.LibraryManagementSystem.Entity;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -17,6 +19,8 @@ public class Book {
 
     @Id
     private String bookId;
+
+    @UniqueElements
     private String tittle;
 
     private boolean isAvailable;

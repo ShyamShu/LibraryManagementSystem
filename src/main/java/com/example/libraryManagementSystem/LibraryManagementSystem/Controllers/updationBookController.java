@@ -2,6 +2,7 @@ package com.example.libraryManagementSystem.LibraryManagementSystem.Controllers;
 
 
 
+import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,22 +33,24 @@ public class updationBookController {
 
 
     @GetMapping("/addBook")
-    public String addBook()
+    public String addBook(Model model)
     {
+        List<Author> authors = authorService.getAllAuthors();
+
+        model.addAttribute("authors", authors);
         return "admin/addBook";
     }
 
     @PostMapping("/addBook")
-    public String processAddBook(@RequestParam String title , @RequestParam(defaultValue = "false") boolean isAvailable , @RequestParam String author) throws Exception
+    public String processAddBook(@RequestParam String title , @RequestParam(defaultValue = "false") boolean isAvailable , @RequestParam Author author) throws Exception
     {
         logger.info("adding process is started ");
         logger.info(title);
-        logger.info(author);
+        logger.info(author.toString());
 
-        Author details = authorService.findAuthorbyname(author);
         Book book = new Book();
         book.setTittle(title);
-        book.setAuthor(details);
+        book.setAuthor(author);
         book.setAvailable(isAvailable);
        logger.info( bookService.saveBook(book).toString());
         return "redirect:/admin/adminDashboard";

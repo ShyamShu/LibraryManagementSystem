@@ -34,6 +34,8 @@
             <thead>
                 <tr>
                     <th>Transaction ID</th>
+                    <th>Book Name</th>
+                    <th>Student Name</th>
                     <th>Borrow Date</th>
                     <th>Return Date</th>
                     <th>Fine Amount</th>
@@ -42,6 +44,8 @@
             <tbody>
                 <tr th:each="transaction : ${transactions}">
                     <td th:text="${transaction.transactionId}"></td>
+                    <td th:text="${transaction.book.name}"></td>
+                    <td th:text="${transaction.student.name}"></td>
                     <td th:text="${transaction.borrowDate}"></td>
                     <td th:text="${transaction.returnDate}"></td>
                     <td th:text="${transaction.fineAmount}"></td>

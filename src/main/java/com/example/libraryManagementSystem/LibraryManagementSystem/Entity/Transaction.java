@@ -32,7 +32,7 @@ public class Transaction {
     private Book book;  // Referencing the Book entity
 
     @ManyToOne
-    @JoinColumn(name = "member_id", nullable = false)
+    @JoinColumn(name = "student_id", nullable = false)
     private Student student;  // Referencing the Member entity
 
     private LocalDate borrowDate;

@@ -111,8 +111,9 @@
                 <label for="returnDate">Return Date:</label>
                 <input type="date" id="returnDate" name="returnDate" th:field="*{returnDate}" th:value="${returnDate}"
                     min="[[${#dates.format(#dates.create('yyyy-MM-dd').plusDays(1), 'yyyy-MM-dd')()}]]"
-                    max="[[${#dates.format(#dates.create('yyyy-MM-dd').plusDays(15), 'yyyy-MM-dd')()}]]" required />
+                    max="[[${#dates.format(#dates.create('yyyy-MM-dd').plusDays(15), 'yyyy-MM-dd')()}]]" readonly />
             </div>
+
 
             
 

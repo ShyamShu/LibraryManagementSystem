@@ -77,13 +77,10 @@
 
         <!-- Author Selection -->
         <div class="form-group">
-            <label for="author">Author:</label>
-            <select id="author" name="author" required>
-                <option value="">Select an Author</option>
-                <!-- Dynamically populate authors here -->
-                <option value="1">Mr Raju</option>
-                <option value="2">Mr abhishek</option>
-                <option value="3">Mr Sunita</option>
+            <label for="bookName">Author Name :</label>
+            <select id="authorName" name="authorName" th:field="*{author.authorId}" required>
+                <option value="">Select a author</option>
+                <option th:each="author : ${authors}" th:value="${author.authorId}" th:text="${author.name}"></option>
             </select>
         </div>
 
