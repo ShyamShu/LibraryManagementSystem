@@ -135,12 +135,16 @@
                     <div class="card-header">Transactions</div>
                     <div class="card-body">
                         <h5>Manage Transactions</h5>
-                        <button class="btn btn-success" th:href="@{/issueBook}">Borrow Book</button>
-                        <button class="btn btn-success" onclick="location.href='/return-book'">Return Book</button>
-                        <button class="btn btn-success" onclick="location.href='/transaction-history'">Transaction History</button>
+                        <!-- Borrow Book Button using Thymeleaf -->
+                        <a th:href="@{/admin/issueBook}" class="btn btn-success">Borrow Book</a>
+                        <!-- Return Book Button using Thymeleaf -->
+                        <a th:href="@{/return-book}" class="btn btn-success">Return Book</a>
+                        <!-- Transaction History Button using Thymeleaf -->
+                        <a th:href="@{/admin/transactionHistory}" class="btn btn-success">Transaction History</a>
                     </div>
                 </div>
             </div>
+            
         </div>
 
         <div class="text-center">

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Transaction History for <span th:text="${email}"></span></h2>
+
+    <!-- Display a message if there are no transactions -->
+    <div th:if="${message != null}">
+        <p th:text="${message}"></p>
+    </div>
+
+    <!-- Display the table if there are transactions -->
+    <div th:if="${transactions != null}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>Borrow Date</th>
+                    <th>Return Date</th>
+                    <th>Fine Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="transaction : ${transactions}">
+                    <td th:text="${transaction.transactionId}"></td>
+                    <td th:text="${transaction.borrowDate}"></td>
+                    <td th:text="${transaction.returnDate}"></td>
+                    <td th:text="${transaction.fineAmount}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
